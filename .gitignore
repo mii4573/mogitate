@@ -1,16 +1,21 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
+# Laravel (srcフォルダ内) の設定
+src/node_modules/
+src/public/hot
+src/public/storage
+src/storage/*.key
+src/vendor/
+src/.env
+src/.env.backup
+src/.phpunit.result.cache
+
+# Docker関連
+docker/mysql/data/
 docker-compose.override.yml
+
+# その他ツール
+.idea/
+.vscode/
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/.idea
-/.vscode
-/docker/mysql/data/
