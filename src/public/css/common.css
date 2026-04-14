@@ -1,0 +1,45 @@
+/* コンテナ全体 */
+.products {
+    display: flex;
+    width: 1200px;
+    /* 全体の幅を固定 */
+    margin: 40px auto;
+    gap: 30px;
+}
+
+/* ヘッダー全体の背景色と高さ */
+.header {
+    background-color: #faf9f7;
+    /* 白背景（清潔感重視） */
+    border-bottom: 2px solid #f0f0f0;
+    /* 下に薄い線を入れて区切りを明確に */
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.header__inner {
+    width: 1200px;
+    /* index.cssの.productsの幅と合わせると綺麗です */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダーロゴのスタイル */
+.header__logo {
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff9d00;
+    /* ロゴにスムージーっぽいオレンジ色を採用 */
+    text-decoration: none;
+    /* 下線を消す */
+    letter-spacing: 1px;
+    /* 文字の間隔を少し広げておしゃれに */
+    transition: opacity 0.3s;
+}
+
+.header__logo:hover {
+    opacity: 0.7;
+    /* ホバーした時に少し薄くする */
+}

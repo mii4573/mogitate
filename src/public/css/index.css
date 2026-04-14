@@ -1,0 +1,218 @@
+.container {
+    width: 1200px;
+    margin: 40px auto;
+}
+/* タイトルとボタンを横並びにする */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    /* 両端に寄せる */
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.products {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    /* サイドバーが下に伸びないようにする */
+}
+
+.page-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #383535;
+}
+
+/* 追加ボタンのスタイル */
+.add-btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #ffcc00;
+}
+
+/* グリッド自体の幅や余白（必要に応じて） */
+.product-main {
+    flex: 1;
+}
+
+/* 左側：サイドバー (検索) */
+.sidebar {
+    width: 250px;
+    background-color: #f7f7e9;
+    padding: 30px 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.search-group,
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    /* グループごとの余白 */
+}
+
+/* ラベルのスタイル */
+.search-group label,
+.filter-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+    /* ラベルと入力欄の間の余白 */
+}
+
+/* 入力欄とセレクトボックスの共通スタイル */
+.search-group input,
+.filter-group select {
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+/* 検索ボタンのスタイル（オレンジ系で統一） */
+.search-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9d00;
+    /* ロゴと合わせたオレンジ */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+    /* ボタンの下の余白 */
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #e68a00;
+    /* ホバー時に少し暗く */
+}
+
+/* 右側：商品グリッド */
+.product-grid {
+    display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3列に並べる */
+        gap: 30px 20px;
+        /* 縦の隙間を少し広めに設定 */
+}
+
+/* 商品カード */
+.product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+        /* 背景が白だと影が綺麗に見えます */
+        border-radius: 12px;
+        /* 角を少し丸くすると影と馴染みます */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        /* ほんのりとした薄い影 */
+        border: 1px solid #f0f0f0;
+        /* 境界線を少し薄くして影を引き立てる */
+        overflow: hidden;
+        /* 画像の角丸をカードに合わせる */
+        padding-bottom: 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 商品画像 */
+.product-image img {
+    width: 100%;
+    height: 200px;
+    /* 高さを揃える */
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    /* 画像がない時用の背景色 */
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+}
+
+/* 商品名と価格 */
+.product-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-price {
+    margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+}
+
+.pagination-wrapper nav div:first-child {
+    display: none !important;
+}
+
+.pagination-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ページネーションの矢印や数字のサイズ調整 */
+.pagination-wrapper svg {
+    width: 20px;
+}
+
+.pagination-wrapper .pagination {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+}
+
+.pagination-wrapper .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* 正円にする */
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    background-color: #ff9d00;
+    /* 現在のページの色（オレンジ系） */
+    color: white;
+    border-color: #ff9d00;
+}
+
+.pagination-wrapper .page-item .page-link:hover {
+    background-color: #f0f0f0;
+}

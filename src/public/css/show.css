@@ -1,0 +1,155 @@
+.product-detail {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.breadcrumb {
+    margin-bottom: 25px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.detail-container {
+    display: flex;
+    gap: 50px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+/* 画像エリア */
+.detail-image {
+    flex: 1;
+}
+
+.detail-image-section {
+    flex: 0.5;
+    max-width: 250px;
+}
+
+.current-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* 正方形を維持 */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.file-input-group input[type="file"] {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* 右側：情報入力セクション */
+.detail-info-section {
+    flex: 1.2;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    /* パディングを含めたサイズ計算 */
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 5px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.description-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.description-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description-section textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    resize: vertical;
+    /* 縦方向のみリサイズ可能 */
+    box-sizing: border-box;
+}
+
+/* ボタンエリア */
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background: #e68a00;
+}
+
+.back-btn:hover {
+    background: #e0e0e0;
+}
