@@ -65,9 +65,9 @@ class ProductController extends Controller
     {
         $seasons = Season::all();
         return view('register', compact('seasons'));
-   }
-   public function store(ProductRequest $request)
-   {
+    }
+    public function store(ProductRequest $request)
+    {
         $data = $request->all();
 
         if ($request->hasFile('image')) {
@@ -79,16 +79,16 @@ class ProductController extends Controller
         $product->seasons()->attach($request->seasons);
 
         return redirect()->route('products.index')->with('success', '商品を登録しました');
-   }
+    }
 
-   public function destroy($id)
-   {
+    public function destroy($id)
+    {
         $product = Product::findOrFail($id);
         $product->seasons()->detach();
         $product->delete();
 
         return redirect()->route('products.index')->with('success', '商品を削除しました');
-   }
+    }
 
 
 
