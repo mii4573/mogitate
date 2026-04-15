@@ -1,5 +1,5 @@
 # mogitate
-![ER図](src/public/images/mogitate_er_drawio.png)
+![ER図](src/public/images/mogitate_er.drawio.png)
 
 ##環境構築
 git@github.com:mii4573/mogitate.git
@@ -11,7 +11,7 @@ composer install
 cp .env.example .env 環境変数を適宜変更
 php artisan key:generate
 php artisan migrate
-php artisan db:Seed
+php artisan db:seed
 
 ##使用技術
 php 8.1-fpm
