@@ -1,5 +1,5 @@
 # mogitate
-![ER図](./src/public/images/mogitate_er_drawio.png)
+![ER図](src/public/images/mogitate_er_drawio.png)
 
 ##環境構築
 git@github.com:mii4573/mogitate.git
