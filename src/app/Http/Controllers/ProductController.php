@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Season;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -52,7 +53,10 @@ class ProductController extends Controller
         $product->seasons()->sync($request->seasons);
         
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('products', 'public');
+            if ($product->image) {
+                Storage::delete('public/' . $product->image);
+            }
+            $path = $request->file('image')->store('images', 'public');
             $product->image = $path;
         }
 
@@ -71,8 +75,8 @@ class ProductController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $filename = $request->file('image')->store('products', 'public');
-            $data['image'] = $filename;
+            $path = $request->file('image')->store('images', 'public');
+            $data['image'] = $path;
         }
 
         $product = Product::create($data);
@@ -84,6 +88,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+        if ($product->image) {
+            Storage::delete('public/' . $product->image);
+        }
         $product->seasons()->detach();
         $product->delete();
 

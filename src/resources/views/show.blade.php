@@ -85,7 +85,9 @@
         <div class="detail-actions">
             <a href="{{ route('products.index') }}" class="back-btn">戻る</a>
             <button type="submit" class="save-btn">変更を保存</button>
+        </div>
     </form>
+    
     <form action="{{ route('products.destroy', $product->id) }}" method="POST" 
           onsubmit="return confirm('本当にこの商品を削除してもよろしいですか？');" 
           class="delete-form">
