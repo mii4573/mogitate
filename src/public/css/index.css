@@ -1,31 +1,34 @@
+/* ==========================
+   全体レイアウト
+========================== */
+
 .container {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
-/* タイトルとボタンを横並びにする */
+
+/* タイトルと商品追加ボタン */
+
 .product-header {
     display: flex;
     justify-content: space-between;
-    /* 両端に寄せる */
     align-items: center;
     margin-bottom: 20px;
     padding: 0 10px;
-}
-
-.products {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    /* サイドバーが下に伸びないようにする */
 }
 
 .page-title {
     font-size: 22px;
     font-weight: bold;
     color: #383535;
+    margin: 0;
 }
 
-/* 追加ボタンのスタイル */
+/* 商品追加ボタン */
+
 .add-btn {
     display: inline-block;
     background-color: #ffcc00;
@@ -34,145 +37,162 @@
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 .add-btn:hover {
-    background-color: #ffcc00;
+    background-color: #e6b800;
 }
 
-/* グリッド自体の幅や余白（必要に応じて） */
-.product-main {
-    flex: 1;
+/* ==========================
+   商品一覧レイアウト
+========================== */
+
+.products {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
-/* 左側：サイドバー (検索) */
+/* 左側：検索サイドバー */
+
 .sidebar {
     width: 250px;
+    min-width: 250px;
     background-color: #f7f7e9;
     padding: 30px 20px;
     border-radius: 8px;
+    box-sizing: border-box;
     flex-shrink: 0;
 }
+
+/* 検索・並び替えグループ */
 
 .search-group,
 .filter-group {
     display: flex;
     flex-direction: column;
-    
     box-sizing: border-box;
     margin-bottom: 25px;
-    /* グループごとの余白 */
 }
 
-/* ラベルのスタイル */
 .search-group label,
 .filter-group label {
     font-size: 16px;
     font-weight: bold;
     color: #333;
     margin-bottom: 12px;
-    /* ラベルと入力欄の間の余白 */
 }
 
-/* 入力欄とセレクトボックスの共通スタイル */
+/* 入力欄・セレクトボックス */
+
 .search-group input,
 .filter-group select {
-    width: 90%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     background-color: #fff;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
-/* 検索ボタンのスタイル（オレンジ系で統一） */
+/* 検索ボタン */
+
 .search-btn {
     width: 100%;
     padding: 12px;
     background-color: #ff9d00;
-    /* ロゴと合わせたオレンジ */
     color: #fff;
     border: none;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
     margin-bottom: 30px;
-    /* ボタンの下の余白 */
     transition: background-color 0.3s;
 }
 
 .search-btn:hover {
     background-color: #e68a00;
-    /* ホバー時に少し暗く */
 }
 
-/* 右側：商品グリッド */
+/* ==========================
+   商品グリッド
+========================== */
+
+.product-main {
+    flex: 1;
+    min-width: 0;
+}
+
 .product-grid {
     display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        /* 3列に並べる */
-        gap: 30px 20px;
-        /* 縦の隙間を少し広めに設定 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 20px;
 }
 
 /* 商品カード */
+
 .product-card {
     display: block;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s, box-shadow 0.3s;
     background-color: #fff;
-        /* 背景が白だと影が綺麗に見えます */
-        border-radius: 12px;
-        /* 角を少し丸くすると影と馴染みます */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        /* ほんのりとした薄い影 */
-        border: 1px solid #f0f0f0;
-        /* 境界線を少し薄くして影を引き立てる */
-        overflow: hidden;
-        /* 画像の角丸をカードに合わせる */
-        padding-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 商品画像 */
+
+.product-image {
+    width: 100%;
+    overflow: hidden;
+}
+
 .product-image img {
+    display: block;
     width: 100%;
     height: 200px;
-    /* 高さを揃える */
     object-fit: cover;
-    border-radius: 10px;
     background-color: #f0f0f0;
-    /* 画像がない時用の背景色 */
 }
+
+/* 商品名・価格 */
 
 .product-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 10px 10px;
+    gap: 10px;
+    padding: 10px 15px;
 }
 
-/* 商品名と価格 */
 .product-name {
     margin: 0;
     font-size: 16px;
     font-weight: bold;
+    overflow-wrap: anywhere;
 }
 
 .product-price {
     margin: 0;
-        font-size: 18px;
-        font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-.pagination-wrapper nav div:first-child {
-    display: none !important;
-}
+/* ==========================
+   ページネーション
+========================== */
 
 .pagination-wrapper {
     margin-top: 30px;
@@ -180,15 +200,22 @@
     justify-content: center;
 }
 
-/* ページネーションの矢印や数字のサイズ調整 */
+/* Laravel標準ページネーションの表示調整 */
+
+.pagination-wrapper nav div:first-child {
+    display: none !important;
+}
+
 .pagination-wrapper svg {
     width: 20px;
+    height: 20px;
 }
 
 .pagination-wrapper .pagination {
     display: flex;
     list-style: none;
     gap: 8px;
+    padding: 0;
 }
 
 .pagination-wrapper .page-item .page-link {
@@ -198,21 +225,81 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* 正円にする */
     background-color: #fff;
     color: #333;
     border: 1px solid #ddd;
     text-decoration: none;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .pagination-wrapper .page-item.active .page-link {
     background-color: #ff9d00;
-    /* 現在のページの色（オレンジ系） */
-    color: white;
+    color: #fff;
     border-color: #ff9d00;
 }
 
 .pagination-wrapper .page-item .page-link:hover {
     background-color: #f0f0f0;
+}
+
+/* ==========================
+   レスポンシブ対応
+========================== */
+
+@media screen and (max-width: 900px) {
+    .products {
+        gap: 20px;
+    }
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .product-header {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .products {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .product-main {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .product-image img {
+        height: 150px;
+    }
+
+    .product-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
 }
